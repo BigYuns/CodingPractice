@@ -48,3 +48,8 @@ class Solution(object):
                 self.dfs(row-1,col, matrix,checker,counter)
             counter = counter + 1 
         return counter 
+
+"""
+Comment: try with the untion find graph traversal method 
+It will save the space complexity 
+"""

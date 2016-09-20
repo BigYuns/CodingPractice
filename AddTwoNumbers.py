@@ -2,11 +2,11 @@
 
 #change it to the node one 
 
-#class ListNode(object):
+class ListNode(object):
     
-    #def __init__(self, x):
-        #self.val = x
-        #self.next = None
+    def __init__(self, x):
+        self.val = x
+        self.next = None
 
 class Solution(object):
     def addTwoNumbers(self, l1, l2):
@@ -47,3 +47,12 @@ class Solution(object):
             prev.next = ListNode(1) 
         
         return head 
+
+
+"""
+Key points: 
+1) when l1=None vs l1 = ListNode(None) is different! 
+2) when I am trying to access to the decorators of the node, make sure to check whether the node itself is None or not. 
+3) Summation is always important to check whether it is greater than 9 or not. 
+    -good idea to create a variable to check either the variable is one or zero. 
+""""
