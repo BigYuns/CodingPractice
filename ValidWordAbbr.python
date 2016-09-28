@@ -1,0 +1,46 @@
+class ValidWordAbbr(object):
+    def __init__(self, dictionary):
+        """
+        initialize your data structure here.
+        :type dictionary: List[str]
+        """
+        self.dic = dictionary
+        self.map ={}
+
+    def isUnique(self, word):
+        """    ..eeee
+        check if a word is unique.
+        :type word: str
+        :rtype: bool
+        """
+        def abbr(word): 
+            if len(word) <3:
+                return word 
+                
+            middle = str(len(word)-2)
+            return word[0]+middle+word[len(word)-1]
+            
+        def populateMap(): 
+            for w in self.dic: 
+                a = abbr(w)
+                print self.map[a]
+                if self.map[a] == None: 
+                    self.map[a] =1
+                else:
+                    self.map[a] += 1 
+                    
+        if word not in self.dic or word==None: 
+            return False
+        
+        populateMap() 
+        index =abbr(word)
+        return True if self.map[index] ==1 else False 
+        
+                    
+        
+
+if __name__ = '__main__': 
+# Your ValidWordAbbr object will be instantiated and called as such:
+# vwa = ValidWordAbbr(dictionary)
+# vwa.isUnique("word")
+# vwa.isUnique("anotherWord")

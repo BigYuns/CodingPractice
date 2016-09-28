@@ -1,0 +1,42 @@
+안녕 콴 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ === hi kuan
+바보 콴 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ === stupid kuan
+
+-------------------------
+
+servers [0, ... 39] len = 40
+
+each number represent a server.
+You have a massive file stored in server 0.
+
+There is manager server that manages copy operation.
+Each server can do maximum of 3 concurrent copies at a time. 
+
+
+
+
+
+def doCopy(src,dest):
+    copyFile(src, dest)
+    available_workers.enqueue(src)
+    for x in range(3):
+        available_workers.enqueue(dest)
+    
+    
+copyFile(src, dest) # this method will block while copy proceeds 
+
+Thread.run(func)
+
+def populate():
+""" This function will copy a big file from server 0 to all of the servers. This method needs to return only when all copies has finished. """
+    available_workers = Queue()
+    available_dest = servers
+    
+    start = available_dest.pop() # 0
+    for x in range (3):
+        availble_workers.queue(start)  # queue = [0,0,0]
+    
+    while(available_dest):
+        src = available_workers.dequeue() #gets called after enqueue from worker
+        dest = available_dest.pop()
+        
+        thread.run(doCopy(src,dest))
